@@ -9,7 +9,6 @@ jobs:
     trigger-poc:
         name: 'Path based Trigger POC'
         runs-on: ubuntu-latest
-
         steps:
             # Checkout the repository to the GitHub Actions runner
               - name: 'Checkout'
@@ -35,6 +34,8 @@ jobs:
                     echo "folderslist=/src/test" >> $GITHUB_OUTPUT
     build-poc:
       needs: triggerpoc
+      name: 'Build POC'
+      runs-on: ubuntu-latest
       steps:
         - name: "Print Output"
           run: |
