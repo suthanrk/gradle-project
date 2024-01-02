@@ -33,7 +33,7 @@ jobs:
                     sort folderlist.txt | uniq -i > uniqfolderlist.txt
                     echo "After uniq"
                     jq -Rs '[ split("\n")[] | select(length > 0) | split(",") | {Iteration: .[0]} ]' uniqfolderlist.txt
-                    echo "folderslist=/src/test" >> $GITHUB_OUTPUT
+                    echo "folderslist=/src/test," >> $GITHUB_OUTPUT
     build-poc:
       needs: triggerpoc
       name: 'Build POC'
