@@ -1,5 +1,4 @@
 name: POC for Path based trigger
-
 on:
     workflow_dispatch:
     push:
