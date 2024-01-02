@@ -5,6 +5,7 @@ on:
     push:
         paths:
             - 'src/**'
+            - 'gradle/**'
 jobs:
     trigger-poc:
         name: 'Path based Trigger POC'
