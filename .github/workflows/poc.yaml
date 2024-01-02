@@ -32,10 +32,10 @@ jobs:
                     cat folderlist.txt
                     sort folderlist.txt | uniq -i > uniqfolderlist.txt
                     echo "After uniq"
-                    jq -Rs '[ split("\n")[] | select(length > 0) | split(",") | {Iteration: .[0]} ]' uniqfolderlist.txt
-                    echo "folderslist=`cat uniqfolderlist.txt`" >> $GITHUB_OUTPUT
+                    jq -Rs '[ split("\n")[] | select(length > 0) | split(",") | {Iteration: .[0]} ]' uniqfolderlist.txt > uniqfolderlist.json
+                    echo "folderslist=`cat uniqfolderlist.json`" >> $GITHUB_OUTPUT
                     echo "Final"
-                    echo "`cat uniqfolderlist.txt`"
+                    echo "`cat uniqfolderlist.json`"
     build-poc:
       needs: triggerpoc
       name: 'Build POC'
