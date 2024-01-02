@@ -30,7 +30,7 @@ jobs:
                     done < "$filelist" > folderlist.txt
                     echo "Folder list"
                     cat folderlist.txt
-                    sort folderlist.txt | uniq -i
+                    sort folderlist.txt | uniq -i > folderlist.txt
                     echo "After uniq"
                     cat folderlist.txt
 
