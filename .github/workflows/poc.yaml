@@ -47,5 +47,5 @@ jobs:
         - name: "Print Output"
           run: |
             currentfolder="${{matrix.folder.iteration}}"
-            cd currentfolder
+            cd $currentfolder
             ls
