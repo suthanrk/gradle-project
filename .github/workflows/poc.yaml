@@ -46,6 +46,6 @@ jobs:
       steps:
         - name: "Print Output"
           run: |
-            echo "${{matrix.folder}}"
+            echo "${{matrix.folder.Iteration}}"
             #cd "${{matrix.folder}}"
             ls
