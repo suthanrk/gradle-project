@@ -48,11 +48,9 @@ jobs:
           uses: actions/checkout@v2
         - name: "Print Output"
           run: |
+            currentfolder="${{matrix.folder.iteration}}"
+            cd $currentfolder
             echo "pwd"
             pwd
-            echo "list"
-            ls
-            currentfolder="${{matrix.folder.iteration}}"
-            echo "Iteration Folder: $currentfolder"
-            cd $currentfolder
+            echo "File list"
             ls
