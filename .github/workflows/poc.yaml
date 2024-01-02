@@ -24,12 +24,14 @@ jobs:
                     filelist="./committedfiles.txt"
                     echo "File list"
                     cat committedfiles.txt
+                    i=0
                     while IFS= read -r currentline
                     do
-                      echo $(dirname ${currentline}),$(dirname ${currentline})
+                      echo iteration$i,$(dirname ${currentline})
+                      i=i+1
                     done < "$filelist" > folderlist.txt
                     echo "Folder list"
                     cat folderlist.txt
                     sort folderlist.txt | uniq -i > uniqfolderlist.txt
                     echo "After uniq"
-                    jq -Rs '[ split("\n")[] | select(length > 0) | split(",") | {.[0]: .[0], .[1]: .[1]} ]' uniqfolderlist.txt
+                    jq -Rs '[ split("\n")[] | select(length > 0) | split(",") | {.[0]: .[1] ]' uniqfolderlist.txt
