@@ -21,10 +21,11 @@ jobs:
                 id: checkForChanges
                 run: |
                     git diff --name-only ${{ github.event.after }} ${{ github.event.before }} > committedfiles.txt
-                    input="./committedfiles.txt"
-                    while IFS= read -r line
+                    filelist="./committedfiles.txt"
+                    while IFS= read -r currentline
                     do
-                      echo "$line"
-                    done < "$input"
+                      echo $(dirname ${currentline})
+                    done < "$filelist" > folderlist.txt
+                    cat folderlist.txt
 
               
