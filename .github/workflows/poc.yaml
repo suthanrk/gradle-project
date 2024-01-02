@@ -32,4 +32,4 @@ jobs:
                     cat folderlist.txt
                     sort folderlist.txt | uniq -i > uniqfolderlist.txt
                     echo "After uniq"
-                    jq -Rs '[ split("\n")[] | select(length > 0) | split(",") | {Folder: .[0] ]' uniqfolderlist.txt
+                    jq -Rs '[ split("\n")[] | select(length > 0) | split(",") | {Iteration: .[0]} ]' uniqfolderlist.txt
