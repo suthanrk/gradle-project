@@ -42,7 +42,7 @@ jobs:
       runs-on: ubuntu-latest
       strategy:
         matrix:
-          folder: ${{needs.triggerpoc.outputs.folderslist}}
+          folder: ${{fromJson(needs.triggerpoc.outputs.folderslist)}}
       steps:
         - name: "Print Output"
           run: |
