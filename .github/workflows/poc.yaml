@@ -32,7 +32,7 @@ jobs:
                     cat folderlist.txt
                     sort folderlist.txt | uniq -i > uniqfolderlist.txt
                     echo "After uniq"
-                    cat uniqfolderlist.txt | jq -Rs '[ split("\n")[] | select(length > 0) | split(",") | {FrameworkName: .[0], VersionName: .[1]} ]' data.txt
-                    cat data.txt
+                    jq -Rs '[ split("\n")[] | select(length > 0) | split(",") | {FrameworkName: .[0], VersionName: .[1]} ]' uniqfolderlist.txt
+
 
               
