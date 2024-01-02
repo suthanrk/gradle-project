@@ -15,9 +15,11 @@ jobs:
               - name: 'Checkout'
                 uses: actions/checkout@v2
               - name: Check the path
+                env:
+                  EVENT_CONTEXT: ${{ toJson(github.event) }}
                 run: |
                   echo "Event"  
-                  echo ${{ github.event }}
+                  echo "$EVENT_CONTEXT"
               - name: Dump GitHub context
                 env:
                   GITHUB_CONTEXT: ${{ toJson(github) }}
