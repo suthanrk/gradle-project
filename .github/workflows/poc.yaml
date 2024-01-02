@@ -32,7 +32,7 @@ jobs:
                     cat folderlist.txt
                     sort folderlist.txt | uniq -i > uniqfolderlist.txt
                     echo "After uniq"
-                    jq -Rs '[ split("\n")[] | select(length > 0) | split(",") | {Iteration: .[0]} ]' uniqfolderlist.txt | tr -d '\n' > uniqfolderlist.json
+                    jq -Rs '[ split("\n")[] | select(length > 0) | split(",") | {iteration: .[0]} ]' uniqfolderlist.txt | tr -d '\n' > uniqfolderlist.json
                     echo "folderslist=`cat uniqfolderlist.json`" >> $GITHUB_OUTPUT
                     echo "Final"
                     echo "`cat uniqfolderlist.json`"
@@ -46,6 +46,6 @@ jobs:
       steps:
         - name: "Print Output"
           run: |
-            echo "${{matrix.folder.Iteration}}"
-            #cd "${{matrix.folder}}"
+            currentfolder=${{matrix.folder.iteration}}
+            cd "currentfolder"
             ls
