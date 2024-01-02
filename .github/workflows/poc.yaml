@@ -38,7 +38,10 @@ jobs:
       needs: triggerpoc
       name: 'Build POC'
       runs-on: ubuntu-latest
+      strategy:
+        matrix:
+          folder: ${{needs.triggerpoc.outputs.folderslist}}
       steps:
         - name: "Print Output"
           run: |
-            echo "Output [${{needs.triggerpoc.outputs.folderslist}}]"
+            echo "${{matrix.folder}}]"
