@@ -1,0 +1,18 @@
+name: POC for Path based trigger
+
+on:
+    workflow_dispatch:
+    push:
+jobs:
+    trigger-poc:
+        name: 'Path based Trigger POC'
+        runs-on: ubuntu-latest
+
+        steps:
+            # Checkout the repository to the GitHub Actions runner
+            - name: 'Checkout'
+              uses: actions/checkout@v2
+
+            - name: Check the path
+              run: |
+                  echo ${{ github.event.repository.name }}
