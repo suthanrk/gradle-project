@@ -27,7 +27,7 @@ jobs:
               - name: Check for changes
                 id: checkForChanges
                 run: |
-                    echo "::set-output name=grepValue::$( git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -c '^proxy' )"
+                    git diff --name-only ${{ github.event.after }} ${{ github.event.before }}
 
               - name: Check the path
                 env:
