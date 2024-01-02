@@ -3,6 +3,8 @@ name: POC for Path based trigger
 on:
     workflow_dispatch:
     push:
+        paths:
+            - 'src/**'
 jobs:
     trigger-poc:
         name: 'Path based Trigger POC'
