@@ -22,6 +22,7 @@ jobs:
                 run: |
                     git diff --name-only ${{ github.event.after }} ${{ github.event.before }} > committedfiles.txt
                     filelist="./committedfiles.txt"
+                    cat committedfiles.txt
                     while IFS= read -r currentline
                     do
                       echo $(dirname ${currentline})
