@@ -35,7 +35,7 @@ jobs:
                     jq -Rs '[ split("\n")[] | select(length > 0) | split(",") | {Iteration: .[0]} ]' uniqfolderlist.txt
                     echo "folderslist=`cat uniqfolderlist.txt`" >> $GITHUB_OUTPUT
                     echo "Final"
-                    echo ${{steps.preparelist.outputs.folderslist}}
+                    echo "`cat uniqfolderlist.txt`"
     build-poc:
       needs: triggerpoc
       name: 'Build POC'
