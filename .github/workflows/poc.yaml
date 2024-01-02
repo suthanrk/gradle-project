@@ -46,6 +46,6 @@ jobs:
       steps:
         - name: "Print Output"
           run: |
-            currentfolder=${{matrix.folder.iteration}}
-            cd "currentfolder"
+            currentfolder="${{matrix.folder.iteration}}"
+            cd currentfolder
             ls
