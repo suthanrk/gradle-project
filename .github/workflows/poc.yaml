@@ -46,6 +46,6 @@ jobs:
       steps:
         - name: "Print Output"
           run: |
-            echo "${{matrix.folder}}]"
-            cd "${{matrix.folder}}]"
+            echo "${{matrix.folder}}"
+            #cd "${{matrix.folder}}"
             ls
