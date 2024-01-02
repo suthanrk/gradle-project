@@ -46,10 +46,11 @@ jobs:
       steps:
         - name: "Print Output"
           run: |
-            "pwd"
+            echo "pwd"
             pwd
-            "list"
+            echo "list"
             ls
             currentfolder="${{matrix.folder.iteration}}"
+            echo "Iteration Folder: $currentfolder"
             cd $currentfolder
             ls
