@@ -33,6 +33,9 @@ jobs:
                     echo "After uniq"
                     jq -Rs '[ split("\n")[] | select(length > 0) | split(",") | {Iteration: .[0]} ]' uniqfolderlist.txt
                     echo "folderslist=/src/test" >> $GITHUB_OUTPUT
-              - name: "Print Output"
-                run: |
-                  echo "Output [${{steps.preparelist.outputs.folderslist}}]"
+    build-poc:
+      needs: triggerpoc
+      steps:
+        - name: "Print Output"
+          run: |
+            echo "Output [${{needs.triggerpoc.outputs.folderslist}}]"
