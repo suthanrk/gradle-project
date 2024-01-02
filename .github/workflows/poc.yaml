@@ -16,3 +16,4 @@ jobs:
             - name: Check the path
               run: |
                   echo ${{ github.event.repository.name }}
+                  echo ${{ github.event.path }}
