@@ -21,6 +21,7 @@ jobs:
                 run: |
                   echo "Event"
                   git diff-tree --no-commit-id --name-only -r ${{ github.sha }}
+                  git diff --name-only ${{ github.event.before }} ${{ github.sha }}
                   #echo "github.event.path"
                   #echo ${{github.event_path}}
                   #echo "JSON CAT"
