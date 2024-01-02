@@ -24,6 +24,7 @@ jobs:
                   echo ${{github.event_path}}
                   echo "JSON CAT"
                   cat "/home/runner/work/_temp/_github_workflow/event.json"
+                  echo "EVENT_CONTEXT"
                   echo "$EVENT_CONTEXT"
               - name: Dump GitHub context
                 env:
