@@ -6,9 +6,11 @@ on:
     #        - 'src/**'
     #        - 'gradle/**'
 jobs:
-    trigger-poc:
+    triggerpoc:
         name: 'Path based Trigger POC'
         runs-on: ubuntu-latest
+        outputs:
+          folderslist: ${{steps.preparelist.outputs.folderslist}}
         steps:
             # Checkout the repository to the GitHub Actions runner
               - name: 'Checkout'
