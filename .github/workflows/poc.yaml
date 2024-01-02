@@ -17,7 +17,7 @@ jobs:
                 with:
                     fetch-depth: 0
               - name: Check for changes
-                id: checkForChanges
+                id: preparelist
                 run: |
                     git diff --name-only ${{ github.event.after }} ${{ github.event.before }} > committedfiles.txt
                     filelist="./committedfiles.txt"
@@ -32,3 +32,7 @@ jobs:
                     sort folderlist.txt | uniq -i > uniqfolderlist.txt
                     echo "After uniq"
                     jq -Rs '[ split("\n")[] | select(length > 0) | split(",") | {Iteration: .[0]} ]' uniqfolderlist.txt
+                    echo "folderslist=/src/test" >> $GITHUB_OUTPUT
+              - name: "Print Output"
+                run: |
+                  echo "Output [${{steps.preparelist.outputs.folderslist}}]"
