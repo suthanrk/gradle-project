@@ -16,7 +16,6 @@ jobs:
                 uses: actions/checkout@v2
               - name: Check the path
                 run: |
-                  echo ${{ github.event.repository.name }}
                   echo ${{ github.event.path }}
               - name: Dump GitHub context
                 env:
