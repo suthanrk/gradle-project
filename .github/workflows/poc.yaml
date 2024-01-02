@@ -20,6 +20,7 @@ jobs:
                   EVENT_CONTEXT: ${{ toJson(github.event) }}
                 run: |
                   echo "Event"
+                  git diff-tree --no-commit-id --name-only -r ${{ github.sha }}
                   echo "github.event.path"
                   echo ${{github.event_path}}
                   echo "JSON CAT"
