@@ -22,13 +22,15 @@ jobs:
                 run: |
                     git diff --name-only ${{ github.event.after }} ${{ github.event.before }} > committedfiles.txt
                     filelist="./committedfiles.txt"
+                    "File list"
                     cat committedfiles.txt
                     while IFS= read -r currentline
                     do
                       echo $(dirname ${currentline})
                     done < "$filelist" > folderlist.txt
+                    "Folder list"
                     cat folderlist.txt
-                    uniq folderlist.txt
+                    sort folderlist.txt | uniq -i
                     echo "After uniq"
                     cat folderlist.txt
 
